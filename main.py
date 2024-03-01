@@ -8,11 +8,11 @@ CAPITAL_ONE_ENDPOINT = 'https://api.capitalone.com/your_endpoint_here'
 
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24) # Used to secure session data
+app.secret_key = os.urandom(24)  # Used to secure session data
 
 # Application's credentials and redirect URI
-CLIENT_ID = 'YOUR_CLIENT_ID'
-CLIENT_SECRET = 'YOUR_CLIENT_SECRET'
+CLIENT_ID = os.environ.get('CAPITAL_ONE_CLIENT_ID')  # Get CLIENT_ID from environment variables
+CLIENT_SECRET = os.environ.get('CAPITAL_ONE_CLIENT_SECRET')  # Get CLIENT_ID from environment variables
 REDIRECT_URI = 'http://localhost:5000/callback'
 SCOPE = 'APPROPRIATE_SCOPE'
 AUTHORIZATION_BASE_URL = 'https://api-sandbox.capitalone.com/oauth2/authorize'
